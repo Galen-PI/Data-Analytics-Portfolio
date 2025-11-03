@@ -1,49 +1,112 @@
-# Data-Analytics-Portfolio
-# 📊 Galen Pike – Data Analytics Portfolio
+# SQL Insights for Retail Sales
 
-Hi, I’m **Galen Pike**, a Data Analyst with experience in **Python, SQL, and Tableau**.  
-This portfolio showcases **end-to-end projects** covering data cleaning, analysis, visualization, and insights.
+**Version:** SQL-Focused Analytics | **Tools:** PostgreSQL / MySQL, Optional Python & Tableau
 
 ---
 
-## 🔹 Skills Demonstrated
-- Data cleaning, transformation, and feature engineering with **Python (Pandas, NumPy)**  
-- Advanced SQL querying, joins, window functions, and CTEs  
-- Data visualization and dashboards in **Tableau & Matplotlib/Seaborn**  
-- Predictive modeling with **Linear Regression & Random Forest**  
-- Time-series analysis and forecasting with **Prophet**  
-- ETL pipeline automation and workflow documentation
+## Overview
+This project analyzes **50K+ e-commerce transactions** to uncover customer behavior, sales trends, and product performance using **advanced SQL techniques**.  
+It demonstrates the ability to write **complex queries, use window functions, CTEs, and aggregations** to generate actionable business insights.
 
 ---
 
-## 🔹 Projects
-
-### 1. Workout Progress Analytics
-- **Summary:** Analyzes 3+ years of personal workout data to track strength progression, load, and performance trends across major muscle groups.  
-- **Skills:** Python, Pandas, Matplotlib, Seaborn, Tableau, ETL pipeline  
-- **Highlights:** Automated dataset creation, training block analysis, plateau detection  
-- **Link:** [Workout Progress Analytics](https://github.com/Galen-PI/Workout-Progress-Analytics)
-
-### 2. E-Commerce Sales Analysis
-- **Summary:** Analyzes 42K+ e-commerce transactions to uncover sales trends, pricing insights, and customer behavior.  
-- **Skills:** Python, Pandas, Seaborn, Tableau, Predictive Modeling (Linear Regression & Random Forest)  
-- **Highlights:** Discount and purchase efficiency analysis, product popularity metrics  
-- **Link:** [E-Commerce Sales Analysis]((https://github.com/Galen-PI/E-Commerice-Sales-Analysis))
-
-### 3. SQL Insights for Retail Sales
-- **Summary:** SQL-based analysis of 50K+ e-commerce transactions to derive business insights using advanced SQL queries.  
-- **Skills:** SQL (PostgreSQL/MySQL), Joins, CTEs, Window Functions, CASE logic, Optional Python/Tableau  
-- **Highlights:** Customer lifetime value, top products by revenue, trend analysis  
-- **Link:** [SQL Insights for Retail Sales](https://github.com/Galen-PI/SQL-Insights-for-Retail-Sales)
-
-### 4. Labor Market Analysis & Forecasting
-- **Summary:** Labor market analysis using FRED API data, feature engineering, correlation studies, and time series forecasting.  
-- **Skills:** Python, Pandas, Prophet, Tableau  
-- **Highlights:** Forecasting unemployment, wage trends, and job openings; macroeconomic insights  
-- **Link:** [Labor Market Analysis & Forecasting](https://github.com/Galen-PI/Labor-Market-Analysis-Forecasting)
+## Objectives
+- Build and query a relational database simulating real-world retail operations.  
+- Extract insights on **sales trends, customer behavior, and product performance**.  
+- Showcase advanced SQL skills through **joins, aggregations, window functions, and CASE logic**.  
+- Optionally integrate Python or Tableau for visualization and further analysis.
 
 ---
 
-## 🔹 Contact
-- **LinkedIn:** [Galen Pike](https://www.linkedin.com/in/galen-pike)  
-- **GitHub:** [github.com/Galen-PI](https://github.com/Galen-PI)  
+## Tech Stack
+| Category | Tools / Libraries |
+|-----------|-------------------|
+| **Database** | PostgreSQL / MySQL |
+| **SQL Concepts** | JOINs, Aggregations (SUM, COUNT, AVG), CTEs, Window Functions (RANK, DENSE_RANK, LAG, LEAD), CASE logic |
+| **Optional Tools** | Python (for data loading), Tableau (for visualization) |
+| **Workflow** | SQL-based ETL, Analysis, Reporting |
+
+---
+
+## Dataset Structure
+The synthetic dataset is designed to mimic real-world retail data:  
+
+| Table | Key Columns |
+|-------|-------------|
+| **Customers** | customer_id, name, region, signup_date |
+| **Products** | product_id, product_name, category, unit_price |
+| **Orders** | order_id, customer_id, order_date, total_amount, payment_method |
+| **Order_Details** | order_detail_id, order_id, product_id, quantity, unit_price |
+| **Returns** | return_id, order_id, product_id, return_reason, return_date |
+
+---
+
+## Analysis Pipeline
+1. **Database Setup**  
+   - Loaded CSV datasets into relational tables.  
+   - Defined primary keys, foreign keys, and indices for query efficiency.  
+
+2. **Exploratory SQL Queries**  
+   - Calculated revenue, order frequency, and customer lifetime value.  
+   - Aggregated product performance by category and region.  
+
+3. **Advanced SQL Techniques**  
+   - **CTEs** to organize complex queries.  
+   - **Window Functions** for ranking products and tracking trends over time.  
+   - **CASE logic** to categorize revenue, returns, and customer segments.
+
+---
+
+## Optional Visualization(In-Progress)
+- Integrated results in **Tableau** to create interactive dashboards.  
+- Key visualizations:  
+  - Revenue by product category and region  
+  - Top 10 products by total revenue  
+  - Monthly revenue trends (YoY)  
+  - Customer lifetime value distribution  
+
+### 🔗 Tableau Dashboard (In-Progress)
+*(Optional if integrated)*  
+**[View Dashboard →](#)**  
+
+---
+
+## 🧾 File Structure
+SQL-Insights-for-Retail-Sales/
+│
+├── data/
+│ ├── raw/ # Original CSV files
+│ └── loaded/ # Tables loaded into SQL database
+│
+├── notebooks/ # Optional Python analysis notebooks
+│ └── analysis_visualization.ipynb
+│
+├── sql/
+│ ├── schema.sql # Table creation and constraints
+│ ├── data_load.sql # Load CSVs into tables
+│ └── queries.sql # Advanced analysis queries
+│
+├── visuals/ # Optional exported charts
+└── README.md
+
+---
+
+## Results & Insights
+
+### Key Findings
+- **Top 10 products** accounted for **35% of total revenue**, indicating concentration in high-performing SKUs.  
+- **Returning customers** contributed **X% of total revenue**, highlighting their importance to the business.  
+- **Regions with highest LTV** can be targeted for marketing campaigns.  
+- **Monthly revenue trends** revealed seasonal peaks and slow periods for inventory planning.
+
+### Key Takeaway
+This project demonstrates **advanced SQL proficiency** for real-world analytics.  
+It highlights the ability to **transform raw transaction data into actionable business insights** using relational databases, complex queries, and optional visualization tools.
+
+
+## Author
+**Galen Pike**  
+Data Analyst | SQL • Python • Tableau  
+[LinkedIn Profile](#) | [Portfolio](3)
+
+---
