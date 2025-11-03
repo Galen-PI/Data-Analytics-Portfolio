@@ -1,49 +1,102 @@
-# Data-Analytics-Portfolio
-# 📊 Galen Pike – Data Analytics Portfolio
+# E-Commerce Sales Analysis
 
-Hi, I’m **Galen Pike**, a Data Analyst with experience in **Python, SQL, and Tableau**.  
-This portfolio showcases **end-to-end projects** covering data cleaning, analysis, visualization, and insights.
+**Version:** End-to-End Analysis | **Tools:** Python, Pandas, Tableau, scikit-learn
 
 ---
 
-## 🔹 Skills Demonstrated
-- Data cleaning, transformation, and feature engineering with **Python (Pandas, NumPy)**  
-- Advanced SQL querying, joins, window functions, and CTEs  
-- Data visualization and dashboards in **Tableau & Matplotlib/Seaborn**  
-- Predictive modeling with **Linear Regression & Random Forest**  
-- Time-series analysis and forecasting with **Prophet**  
-- ETL pipeline automation and workflow documentation
+## Overview
+This project analyzes **42K+ e-commerce transactions** to uncover sales trends, customer behavior, and pricing insights.  
+It demonstrates a **complete analytics workflow** from data cleaning and metric derivation to predictive modeling and interactive visualization.
 
 ---
 
-## 🔹 Projects
-
-### 1. Workout Progress Analytics
-- **Summary:** Analyzes 3+ years of personal workout data to track strength progression, load, and performance trends across major muscle groups.  
-- **Skills:** Python, Pandas, Matplotlib, Seaborn, Tableau, ETL pipeline  
-- **Highlights:** Automated dataset creation, training block analysis, plateau detection  
-- **Link:** [Workout Progress Analytics](https://github.com/Galen-PI/Workout-Progress-Analytics)
-
-### 2. E-Commerce Sales Analysis
-- **Summary:** Analyzes 42K+ e-commerce transactions to uncover sales trends, pricing insights, and customer behavior.  
-- **Skills:** Python, Pandas, Seaborn, Tableau, Predictive Modeling (Linear Regression & Random Forest)  
-- **Highlights:** Discount and purchase efficiency analysis, product popularity metrics  
-- **Link:** [E-Commerce Sales Analysis]((https://github.com/Galen-PI/E-Commerice-Sales-Analysis))
-
-### 3. SQL Insights for Retail Sales
-- **Summary:** SQL-based analysis of 50K+ e-commerce transactions to derive business insights using advanced SQL queries.  
-- **Skills:** SQL (PostgreSQL/MySQL), Joins, CTEs, Window Functions, CASE logic, Optional Python/Tableau  
-- **Highlights:** Customer lifetime value, top products by revenue, trend analysis  
-- **Link:** [SQL Insights for Retail Sales](https://github.com/Galen-PI/SQL-Insights-for-Retail-Sales)
-
-### 4. Labor Market Analysis & Forecasting
-- **Summary:** Labor market analysis using FRED API data, feature engineering, correlation studies, and time series forecasting.  
-- **Skills:** Python, Pandas, Prophet, Tableau  
-- **Highlights:** Forecasting unemployment, wage trends, and job openings; macroeconomic insights  
-- **Link:** [Labor Market Analysis & Forecasting](https://github.com/Galen-PI/Labor-Market-Analysis-Forecasting)
+## Objectives
+- Clean and standardize raw e-commerce data.  
+- Derive metrics such as **purchase efficiency**, **discount effectiveness**, and **price brackets**.  
+- Conduct exploratory data analysis to uncover trends, outliers, and anomalies.  
+- Build predictive models (Linear Regression & Random Forest) to identify key sales drivers.  
+- Generate actionable insights for **pricing, marketing, and discount strategy**.
 
 ---
 
-## 🔹 Contact
-- **LinkedIn:** [Galen Pike](https://www.linkedin.com/in/galen-pike)  
-- **GitHub:** [github.com/Galen-PI](https://github.com/Galen-PI)  
+## Tech Stack
+| Category | Tools / Libraries |
+|-----------|-------------------|
+| **Language** | Python |
+| **Libraries** | Pandas, NumPy, Matplotlib, Seaborn, scikit-learn |
+| **Tools** | Jupyter Notebook, VS Code |
+| **Visualization** | Seaborn, Matplotlib, Tableau |
+| **Workflow** | Automated ETL Pipeline (Extract → Transform → Clean → Aggregate → Analyze) |
+
+---
+
+## Dataset
+- **Source:** [Amazon Products Sales Dataset (42K+ transactions)](https://www.kaggle.com/datasets/ikramshah512/amazon-products-sales-dataset-42k-items-2025)  
+- **Instructions:** Download the CSV and place it in the `data/` folder before running the analysis.
+
+---
+
+## Automation & Analysis Pipeline
+1. **Data Cleaning & Transformation**  
+   - Standardized product names, removed duplicates, handled missing values.  
+   - Generated derived metrics like **purchase efficiency** and **discount effectiveness**.  
+
+2. **Exploratory Data Analysis (EDA)**  
+   - Visualized trends across **price brackets, discounts, and review ratings**.  
+   - Identified high-value products and outliers.
+
+3. **Predictive Modeling**  
+   - **Linear Regression** to measure influence of price, reviews, and discounts on purchase volume.  
+   - **Random Forest** for feature importance and identifying key sales drivers.
+
+---
+
+## Visualizations
+- Product popularity vs. review score  
+- Discount impact on purchase efficiency  
+- Revenue by price bracket and category  
+- Feature importance from Random Forest model  
+
+###Tableau Dashboard
+**[View Interactive Dashboard →](https://public.tableau.com/app/profile/galen.pike/viz/BusinessProjectPortfolio/Dashboard1#1)**
+
+---
+
+## File Structure
+Business-Portfolio-Project/
+│
+├── data/
+│ ├── raw/ # Original e-commerce CSV from Kaggle
+│ ├── processed/ # Cleaned and aggregated datasets
+│ └── final_dataset.csv # Ready-to-use dataset for analysis
+│
+├── notebooks/
+│ ├── data_cleaning.ipynb # Cleaning and transformation workflow
+│ ├── metrics_eda.ipynb # Metric calculation, EDA, and visualization
+│ └── modeling.ipynb # Predictive modeling and feature importance
+│
+├── scripts/
+│ └── cleaning_functions.py # Reusable Python functions for data cleaning & aggregation
+│
+├── visuals/ # Plots, histograms, and model visualizations
+└── README.md
+
+Tableau Link: https://public.tableau.com/app/profile/galen.pike/viz/BusinessProjectPortfolio/Dashboard1#1
+
+---
+
+## Results & Insights
+
+### Key Business Findings
+- Discounts above **40%** resulted in diminishing returns on total revenue.  
+- **20% of products generated 80% of total profit**, highlighting high-value SKUs for targeted promotions.  
+- High review scores strongly correlate with **purchase frequency**, indicating the importance of reputation management.
+
+### Predictive Modeling Insights
+- **Random Forest** identified **price, review score, and discount percentage** as the top three drivers of purchase volume.  
+- Linear regression revealed that moderate discounts **increase purchase likelihood** but aggressive discounts do not proportionally increase revenue.
+
+### Key Takeaway
+The project demonstrates a **full data-to-insight workflow**, providing actionable recommendations for **pricing, discount strategy, and product promotion optimization**.
+
+**Dataset:** The dataset used in this project (42k+ transactions) is available on [Kaggle] https://www.kaggle.com/datasets/ikramshah512/amazon-products-sales-dataset-42k-items-2025 Download it and place it in the `data/` folder before running the analysis.
