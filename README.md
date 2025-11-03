@@ -1,49 +1,67 @@
-# Data-Analytics-Portfolio
-# 📊 Galen Pike – Data Analytics Portfolio
+# Labor-Market-Analysis-Forecasting
 
-Hi, I’m **Galen Pike**, a Data Analyst with experience in **Python, SQL, and Tableau**.  
-This portfolio showcases **end-to-end projects** covering data cleaning, analysis, visualization, and insights.
+## Overview
+This project analyzes U.S. labor market trends using data from the Federal Reserve Economic Data (FRED) API. It includes historical analysis, feature engineering, correlation studies, and time series forecasting for key labor market metrics such as Unemployment Rate, Avg Hourly Earnings, and Job Openings.
 
----
-
-## 🔹 Skills Demonstrated
-- Data cleaning, transformation, and feature engineering with **Python (Pandas, NumPy)**  
-- Advanced SQL querying, joins, window functions, and CTEs  
-- Data visualization and dashboards in **Tableau & Matplotlib/Seaborn**  
-- Predictive modeling with **Linear Regression & Random Forest**  
-- Time-series analysis and forecasting with **Prophet**  
-- ETL pipeline automation and workflow documentation
+The analysis showcases skills in Python, Pandas, Prophet forecasting, and data visualization, providing insights into labor market dynamics, wage trends, and macroeconomic cycles.
 
 ---
 
-## 🔹 Projects
+## Data Sources
+Data was pulled from FRED using the `fredapi` library. The following series were used:
 
-### 1. Workout Progress Analytics
-- **Summary:** Analyzes 3+ years of personal workout data to track strength progression, load, and performance trends across major muscle groups.  
-- **Skills:** Python, Pandas, Matplotlib, Seaborn, Tableau, ETL pipeline  
-- **Highlights:** Automated dataset creation, training block analysis, plateau detection  
-- **Link:** [Workout Progress Analytics](https://github.com/Galen-PI/Workout-Progress-Analytics)
+| Metric                          | FRED Series Code |
+|---------------------------------|----------------|
+| Unemployment Rate               | UNRATE          |
+| Labor Force Participation       | CIVPART         |
+| Job Openings                    | JTSJOL          |
+| Avg Hourly Earnings             | CES0500000003   |
+| CPI Inflation                   | CPIAUCSL        |
+| Recession Indicator             | USREC           |
 
-### 2. E-Commerce Sales Analysis
-- **Summary:** Analyzes 42K+ e-commerce transactions to uncover sales trends, pricing insights, and customer behavior.  
-- **Skills:** Python, Pandas, Seaborn, Tableau, Predictive Modeling (Linear Regression & Random Forest)  
-- **Highlights:** Discount and purchase efficiency analysis, product popularity metrics  
-- **Link:** [E-Commerce Sales Analysis]((https://github.com/Galen-PI/E-Commerice-Sales-Analysis))
-
-### 3. SQL Insights for Retail Sales
-- **Summary:** SQL-based analysis of 50K+ e-commerce transactions to derive business insights using advanced SQL queries.  
-- **Skills:** SQL (PostgreSQL/MySQL), Joins, CTEs, Window Functions, CASE logic, Optional Python/Tableau  
-- **Highlights:** Customer lifetime value, top products by revenue, trend analysis  
-- **Link:** [SQL Insights for Retail Sales](https://github.com/Galen-PI/SQL-Insights-for-Retail-Sales)
-
-### 4. Labor Market Analysis & Forecasting
-- **Summary:** Labor market analysis using FRED API data, feature engineering, correlation studies, and time series forecasting.  
-- **Skills:** Python, Pandas, Prophet, Tableau  
-- **Highlights:** Forecasting unemployment, wage trends, and job openings; macroeconomic insights  
-- **Link:** [Labor Market Analysis & Forecasting](https://github.com/Galen-PI/Labor-Market-Analysis-Forecasting)
+**Engineered Features:**
+- Job Openings per Unemployed  
+- YoY percentage changes (Unemployment Rate, Avg Hourly Earnings, CPI)  
+- Real Wage Growth (adjusted for CPI)  
+- 3-month rolling averages for trend visualization  
 
 ---
 
-## 🔹 Contact
-- **LinkedIn:** [Galen Pike](https://www.linkedin.com/in/galen-pike)  
-- **GitHub:** [github.com/Galen-PI](https://github.com/Galen-PI)  
+## Analysis
+**Core Labor Market Relationships:**
+- Unemployment Rate and Job Openings: strong negative correlation (-0.682), highlighting labor market slack.  
+- Job Openings per Unemployed: even stronger negative correlation (-0.796), showing market tightness.  
+- Labor Force Participation shows nuanced relationships with unemployment and openings, suggesting workforce supply dynamics.
+
+**Wage & Inflation Relationships:**
+- Avg Hourly Earnings and CPI Inflation: extremely high positive correlation (0.993), indicating wages track inflation closely.  
+- Real Wage Growth correlates positively with Job Openings (0.778) and negatively with Unemployment Rate (-0.33), reflecting tight labor market pressure on wages.
+
+**Recession Context:**
+- Recessions moderately affect unemployment, job openings, and real wages, emphasizing how macroeconomic cycles influence labor market outcomes.
+
+---
+
+## Forecasting
+Time series forecasting was conducted using **Prophet**:
+
+- **Unemployment Rate:** Declined from 2009–2019, impacted by COVID-19, with gradual stabilization post-2023. Forecast shows a steady long-term trend.  
+- **Avg Hourly Earnings:** Forecast shows gradual growth, tracking inflation trends.  
+- **Job Openings:** Forecast highlights early decline, recovery through 2024, and a spike during periods of tight labor markets.
+
+All forecasts include rolling averages and recession shading to contextualize trends.
+
+---
+
+## Visualizations
+Key visualizations generated and included in `visuals/`:
+
+- **Correlation Heatmap** – relationships between core labor market variables  
+- **Forecast Plots** – Unemployment Rate, Avg Hourly Earnings, Job Openings, including rolling averages and forecast confidence intervals  
+- **Recession Shading** – highlights periods of economic downturn  
+
+---
+
+## Tableau Dashboard:
+- Link: https://public.tableau.com/views/U_S_LaborMarketTrendsDashboard/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
+- Notes: Only had access to Tableau Public on the Web browswer
