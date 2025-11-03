@@ -28,7 +28,7 @@ This portfolio showcases **end-to-end projects** covering data cleaning, analysi
 - **Summary:** Analyzes 42K+ e-commerce transactions to uncover sales trends, pricing insights, and customer behavior.  
 - **Skills:** Python, Pandas, Seaborn, Tableau, Predictive Modeling (Linear Regression & Random Forest)  
 - **Highlights:** Discount and purchase efficiency analysis, product popularity metrics  
-- **Link:** [E-Commerce Sales Analysis]((https://github.com/Galen-PI/E-Commerice-Sales-Analysis))
+- **Link:** [E-Commerce Sales Analysis](https://github.com/Galen-PI/E-Commerice-Sales-Analysis)
 
 ### 3. SQL Insights for Retail Sales
 - **Summary:** SQL-based analysis of 50K+ e-commerce transactions to derive business insights using advanced SQL queries.  
