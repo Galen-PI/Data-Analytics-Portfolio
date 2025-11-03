@@ -1,49 +1,111 @@
-# Data-Analytics-Portfolio
-# 📊 Galen Pike – Data Analytics Portfolio
+# Workout Progress Analytics
 
-Hi, I’m **Galen Pike**, a Data Analyst with experience in **Python, SQL, and Tableau**.  
-This portfolio showcases **end-to-end projects** covering data cleaning, analysis, visualization, and insights.
+**Version:** Iterative Development | **Tools:** Python, Pandas, Tableau
 
 ---
 
-## 🔹 Skills Demonstrated
-- Data cleaning, transformation, and feature engineering with **Python (Pandas, NumPy)**  
-- Advanced SQL querying, joins, window functions, and CTEs  
-- Data visualization and dashboards in **Tableau & Matplotlib/Seaborn**  
-- Predictive modeling with **Linear Regression & Random Forest**  
-- Time-series analysis and forecasting with **Prophet**  
-- ETL pipeline automation and workflow documentation
+## Overview
+This project analyzes **three years of personal workout data (2022–2025)** to measure long-term strength and volume progression across all major muscle groups.  
+It demonstrates a **complete data analytics workflow** — from raw data transformation and feature engineering to visualization and performance analysis.
 
 ---
 
-## 🔹 Projects
-
-### 1. Workout Progress Analytics
-- **Summary:** Analyzes 3+ years of personal workout data to track strength progression, load, and performance trends across major muscle groups.  
-- **Skills:** Python, Pandas, Matplotlib, Seaborn, Tableau, ETL pipeline  
-- **Highlights:** Automated dataset creation, training block analysis, plateau detection  
-- **Link:** [Workout Progress Analytics](https://github.com/Galen-PI/Workout-Progress-Analytics)
-
-### 2. E-Commerce Sales Analysis
-- **Summary:** Analyzes 42K+ e-commerce transactions to uncover sales trends, pricing insights, and customer behavior.  
-- **Skills:** Python, Pandas, Seaborn, Tableau, Predictive Modeling (Linear Regression & Random Forest)  
-- **Highlights:** Discount and purchase efficiency analysis, product popularity metrics  
-- **Link:** [E-Commerce Sales Analysis]((https://github.com/Galen-PI/E-Commerice-Sales-Analysis))
-
-### 3. SQL Insights for Retail Sales
-- **Summary:** SQL-based analysis of 50K+ e-commerce transactions to derive business insights using advanced SQL queries.  
-- **Skills:** SQL (PostgreSQL/MySQL), Joins, CTEs, Window Functions, CASE logic, Optional Python/Tableau  
-- **Highlights:** Customer lifetime value, top products by revenue, trend analysis  
-- **Link:** [SQL Insights for Retail Sales](https://github.com/Galen-PI/SQL-Insights-for-Retail-Sales)
-
-### 4. Labor Market Analysis & Forecasting
-- **Summary:** Labor market analysis using FRED API data, feature engineering, correlation studies, and time series forecasting.  
-- **Skills:** Python, Pandas, Prophet, Tableau  
-- **Highlights:** Forecasting unemployment, wage trends, and job openings; macroeconomic insights  
-- **Link:** [Labor Market Analysis & Forecasting](https://github.com/Galen-PI/Labor-Market-Analysis-Forecasting)
+## Objectives
+- Engineer multiple training metric tables and merge them into a unified analytical dataset.  
+- Track **strength and volume progression** across key muscle groups.  
+- Identify **peak performance periods** and **training plateaus**.  
+- Visualize **8-week block progressions** for smarter periodization insights.
 
 ---
 
-## 🔹 Contact
-- **LinkedIn:** [Galen Pike](https://www.linkedin.com/in/galen-pike)  
-- **GitHub:** [github.com/Galen-PI](https://github.com/Galen-PI)  
+## Tech Stack
+| Category | Tools / Libraries |
+|-----------|-------------------|
+| **Language** | Python |
+| **Libraries** | Pandas, NumPy, Matplotlib, Seaborn |
+| **Tools** | Jupyter Notebook, VS Code, Google Colab |
+| **Visualization** | Tableau |
+| **Workflow** | Automated ETL Pipeline (Extract → Transform → Merge → Analyze) |
+
+---
+
+## Dataset Engineering
+Two original datasets (2022–2023 and 2024–2025) were processed to generate four derived metric tables:
+
+| Table | Purpose | Columns (9 total) |
+|--------|----------|------------------|
+| **Total_Load** | Tracks cumulative load per session | Chest, Upper Back, Triceps, Lats, Traps, Biceps, Quads, Hamstrings, Calves |
+| **Total_Sets** | Total number of sets per muscle group | Same 9 columns |
+| **Total_Reps** | Total repetitions performed | Same 9 columns |
+| **Weight_Per_Rep** | Average weight lifted per repetition | Same 9 columns |
+
+After cleaning and normalization, all tables were merged into one **master analytical dataset** for visualization and analysis.
+
+---
+
+## Automation Pipeline
+A custom **automation script** streamlines the entire ETL process:
+
+- Dynamically reads and renames raw workout files.  
+- Cleans, standardizes, and aggregates per metric type.  
+- Outputs intermediate and final datasets for Tableau visualization.
+
+**Example Snippet:**
+```python
+# Automatically rename weeks into structured blocks
+df = auto_rename_weeks(df)
+df2024 = auto_rename_weeks(df2024, block_sizes=[8,8,8,8,4])
+
+# Create metric tables for all muscles
+tables_2022 = create_metric_table(df, muscles_2022)
+tables_2024 = create_metric_table(df2024, muscles_2024)
+
+# Merge datasets automatically
+merged = {
+    metric: pd.concat(
+        [prepare_metric_table(tables_2022, metric),
+         prepare_metric_table(tables_2024, metric)],
+        ignore_index=True
+    )
+    for metric in metrics
+}
+```
+## 🧾 File Structure
+/Workout-Progress-Analysis
+│
+├── data/
+│   ├── raw/                     # Original input CSV files (2022–2023.csv, 2024–2025.csv)
+│   ├── processed/               # Generated metric tables (Total Load, Sets, Reps, Weight Per Rep)
+│   └── merged_dataset.csv       # Final merged dataset for analysis
+│
+├── notebooks/
+│   ├── automation_pipeline.ipynb       # Full ETL workflow and metric table creation
+│   ├── analysis_visualization.ipynb    # Exploratory data analysis, plots, and trends
+│
+├── scripts/
+│   └── automate_metrics.py             # Python functions for automated data cleaning & table generation
+│
+├── visuals/                             # Exported charts, histograms, and heatmaps
+│
+└── README.md                            # Project documentation
+
+
+Link for Tableau: (https://public.tableau.com/views/WorkoutSheet/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)(https://public.tableau.com/views/WorkoutAnalyticsVisualization/WorkoutProgressDashboard?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+
+## 📈 Results & Insights
+
+### Training Progression
+- **Overall strength increased by 22%** over three years, measured by total load volume.  
+- **Upper body muscles (Chest, Lats, Triceps)** showed the most consistent volume growth.  
+- **Leg-focused work (Quads, Hamstrings)** improved in total load but fluctuated due to training block cycles.
+
+### Periodization Insights
+- Most significant growth occurred during **Weeks 9–16 and 33–40**, aligning with structured progression blocks.  
+- Strength plateaus appeared between **Weeks 17–24**, suggesting overreach or recovery phases.
+
+### Load Distribution
+- Balanced training distribution across all nine muscle groups.  
+- **Traps and Biceps** remained stable but undertrained relative to larger muscle groups — an insight for program adjustment.
+
+### Key Takeaway
+The automated ETL workflow successfully quantified **real-world performance trends**, transforming raw training logs into a reproducible analytical dataset and visualization pipeline — the same workflow structure used in professional analytics environments.
